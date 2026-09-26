@@ -4,8 +4,8 @@ Personal hub site for Jessie Parkinson. One static page that routes visitors (mo
 
 ## Rules
 - Single file: everything lives in `index.html` (HTML, CSS, no JS needed). Do not add a framework, build step, or extra pages unless asked.
-- Keep the look: black and white only. Centred black header with a slow-drifting black/grey/white gradient (CSS only, static under prefers-reduced-motion), a 160px circular photo with a thin white ring, white page, white project cards with a 2px black outline, square corners, no shadows, black buttons that invert to white on hover. Fonts are Space Grotesk (headings) and Inter (body) from Google Fonts. Nothing serif or cursive.
-- Cards stay minimal: project name, one sentence, one button. No status labels, tags, icons, or numbered markers.
+- Keep the look: black and white only. Centred black header with a slow-drifting black/grey/white gradient (CSS only, static under prefers-reduced-motion), a 160px circular photo with a thin white ring, white page, white project cards with a 2px black outline, 20px rounded corners, no shadows, a 16:10 preview screenshot across the top of each card, black buttons that invert to white on hover. Fonts are Space Grotesk (headings) and Inter (body) from Google Fonts. Nothing serif or cursive.
+- Cards stay minimal: preview screenshot, project name, one sentence, one button. No status labels, tags, icons, or numbered markers.
 - Copy is plain and conversational, written for a stranger. Sentence case. No corporate or "LinkedIn" tone.
 - Mobile first: check at 375px wide. Cards stack to one column under 680px.
 - Keep the dark-mode colour tokens working when changing colours.
@@ -19,8 +19,8 @@ Personal hub site for Jessie Parkinson. One static page that routes visitors (mo
 - Dark mode inverts the page to black with white text; cards stay white with black text.
 - No coral, plum or sunset gradient anywhere.
 
-## Still to fill in (search `TODO` in index.html)
-- Echo: link (no public URL yet)
+## Still to fill in
+- Nothing outstanding. Echo currently points at its Vercel address (echo-kappa-teal.vercel.app); swap in a custom domain when there is one.
 
 ## Adding a project
-Copy one `<a class="card">` block inside `.grid`, change the name, sentence, button text and href.
+Copy one `<li>` block inside `.grid`, change the name, sentence, button text and href. Add a 1200x750 JPEG screenshot to `assets/` (previews were taken at 1440x900 with headless Chrome and resized) and point the `<img class="preview">` at it.

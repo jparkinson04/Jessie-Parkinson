@@ -6,9 +6,7 @@
 <title>Jessie Parkinson</title>
 <meta name="description" content="Jessie Parkinson — Echo, Expert Voice, Seam Digital Studio and The Grad Groundwork, all in one place.">
 <!--
-  TO EDIT BEFORE GOING LIVE
-  1. Echo card still needs a real link (search for TODO).
-  2. To add a project, copy one <a class="card"> block.
+  To add a project, copy one <li> block inside .grid and drop a 1200x750 screenshot in assets/.
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -92,17 +90,21 @@
     margin: 48px 0 0; padding: 0; list-style: none;
   }
   .card {
-    display: flex; flex-direction: column; gap: 14px;
+    display: flex; flex-direction: column;
     background: var(--card); color: var(--card-ink); text-decoration: none;
-    border: 2px solid var(--black);
-    padding: 30px 30px 30px; min-height: 250px;
+    border: 2px solid var(--black); border-radius: 20px; overflow: hidden;
   }
+  .preview {
+    display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top;
+    border-bottom: 2px solid var(--black); background: var(--grey-light);
+  }
+  .card-body { display: flex; flex-direction: column; gap: 14px; flex: 1; padding: 26px 30px 30px; }
   .card h2 { font-weight: 700; font-size: 30px; line-height: 1.05; margin: 0; letter-spacing: -0.01em; }
   .card p { margin: 0; color: var(--muted); max-width: 28em; }
   .card .btn {
     margin-top: auto; align-self: flex-start;
     background: var(--black); color: var(--white); font-weight: 700; font-size: 15px;
-    padding: 12px 18px; border: 2px solid var(--black);
+    padding: 12px 18px; border: 2px solid var(--black); border-radius: 10px;
   }
   .card:hover .btn { background: var(--white); color: var(--black); border-color: var(--black); }
 
@@ -127,7 +129,7 @@
 
   @media (max-width: 680px) {
     .grid { grid-template-columns: 1fr; gap: 24px; }
-    .card { min-height: 0; padding: 26px 22px; }
+    .card-body { padding: 22px 22px 24px; }
     .hero { padding: 56px 0 80px; }
     .hero h1 { margin-bottom: 28px; }
   }
@@ -151,34 +153,46 @@
   <ul class="grid">
 
     <li>
-      <a class="card" href="#"> <!-- TODO: Echo link (no public URL yet) -->
-        <h2>Echo</h2>
-        <p>Monthly staff wellbeing check-ins for schools and trusts, with clear next steps so leaders can act before good teachers leave.</p>
-        <span class="btn">Find out about Echo</span>
+      <a class="card" href="https://echo-kappa-teal.vercel.app">
+        <img class="preview" src="assets/echo.jpg" alt="Preview of Echo" width="1200" height="750" loading="lazy">
+        <div class="card-body">
+          <h2>Echo</h2>
+          <p>Monthly staff wellbeing check-ins for schools and trusts, with clear next steps so leaders can act before good teachers leave.</p>
+          <span class="btn">Find out about Echo</span>
+        </div>
       </a>
     </li>
 
     <li>
       <a class="card" href="https://expertvoice.co.uk">
-        <h2>Expert Voice</h2>
-        <p>LinkedIn personal branding for business owners who want the right people to see them. Done for you, or done with you.</p>
-        <span class="btn">Visit Expert Voice</span>
+        <img class="preview" src="assets/expertvoice.jpg" alt="Preview of Expert Voice" width="1200" height="750" loading="lazy">
+        <div class="card-body">
+          <h2>Expert Voice</h2>
+          <p>LinkedIn personal branding for business owners who want the right people to see them. Done for you, or done with you.</p>
+          <span class="btn">Visit Expert Voice</span>
+        </div>
       </a>
     </li>
 
     <li>
       <a class="card" href="https://www.seamdigitalstudio.com">
-        <h2>Seam Digital Studio</h2>
-        <p>Websites, booking and content for beauty, wellness and salon businesses in Doncaster and across South Yorkshire.</p>
-        <span class="btn">Visit Seam</span>
+        <img class="preview" src="assets/seam.jpg" alt="Preview of Seam Digital Studio" width="1200" height="750" loading="lazy">
+        <div class="card-body">
+          <h2>Seam Digital Studio</h2>
+          <p>Websites, booking and content for beauty, wellness and salon businesses in Doncaster and across South Yorkshire.</p>
+          <span class="btn">Visit Seam</span>
+        </div>
       </a>
     </li>
 
     <li>
       <a class="card" href="https://www.thegradgroundwork.com">
-        <h2>The Grad Groundwork</h2>
-        <p>Worksheets and tools for graduates working out their first steps after uni. One payment, yours to keep.</p>
-        <span class="btn">Visit The Grad Groundwork</span>
+        <img class="preview" src="assets/gradgroundwork.jpg" alt="Preview of The Grad Groundwork" width="1200" height="750" loading="lazy">
+        <div class="card-body">
+          <h2>The Grad Groundwork</h2>
+          <p>Worksheets and tools for graduates working out their first steps after uni. One payment, yours to keep.</p>
+          <span class="btn">Visit The Grad Groundwork</span>
+        </div>
       </a>
     </li>
 
