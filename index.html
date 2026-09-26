@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jessie Parkinson</title>
+<meta name="description" content="Jessie Parkinson — Echo, Expert Voice, Seam Digital Studio and The Grad Groundwork, all in one place.">
+<!--
+  TO EDIT BEFORE GOING LIVE
+  1. Echo card still needs a real link (search for TODO).
+  2. To add a project, copy one <a class="card"> block.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    --black: #000000;
+    --white: #FFFFFF;
+    --grey: #3A3A3A;
+    --grey-light: #C8C8C8;
+    --bg: #FFFFFF;
+    --ink: #000000;
+    --card: #FFFFFF;
+    --card-ink: #000000;
+    --muted: #444444;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #000000; --ink: #FFFFFF;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #000000; --ink: #FFFFFF;
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, .btn { font-family: "Space Grotesk", Inter, system-ui, sans-serif; }
+  a:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  /* Hero */
+  .hero {
+    position: relative; isolation: isolate; overflow: hidden;
+    background: var(--black); color: var(--white);
+    text-align: center; padding: 72px 0 96px;
+  }
+  /* Drifting black / grey / white gradient, kept below the text */
+  .hero::before {
+    content: ""; position: absolute; inset: 0; z-index: -2;
+    background: linear-gradient(115deg,
+      var(--black) 0%, var(--grey) 30%, var(--white) 50%, var(--grey) 70%, var(--black) 100%);
+    background-size: 300% 100%; background-position: 0% 50%;
+    opacity: 0.25;
+    animation: drift 14s ease-in-out infinite;
+  }
+  /* Soft dark pool behind the text so it stays readable at every point of the loop */
+  .hero::after {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background: radial-gradient(ellipse 60% 75% at 50% 50%, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+  }
+  @keyframes drift {
+    0%   { background-position: 0% 50%;   opacity: 0.25; }
+    50%  { background-position: 100% 50%; opacity: 0.5; }
+    100% { background-position: 0% 50%;   opacity: 0.25; }
+  }
+  .hero h1 {
+    font-weight: 700; font-size: clamp(40px, 7vw, 76px); line-height: 1;
+    letter-spacing: -0.02em; margin: 0 0 32px;
+  }
+  .avatar {
+    display: block; width: 160px; height: 160px; margin: 0 auto 24px;
+    border-radius: 50%; border: 3px solid var(--white); object-fit: cover;
+    background: var(--black);
+  }
+  .hero p {
+    font-size: clamp(17px, 2vw, 20px); margin: 0 auto; max-width: 30em;
+    color: var(--grey-light);
+  }
+
+  /* Cards */
+  .grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px;
+    margin: 48px 0 0; padding: 0; list-style: none;
+  }
+  .card {
+    display: flex; flex-direction: column; gap: 14px;
+    background: var(--card); color: var(--card-ink); text-decoration: none;
+    border: 2px solid var(--black);
+    padding: 30px 30px 30px; min-height: 250px;
+  }
+  .card h2 { font-weight: 700; font-size: 30px; line-height: 1.05; margin: 0; letter-spacing: -0.01em; }
+  .card p { margin: 0; color: var(--muted); max-width: 28em; }
+  .card .btn {
+    margin-top: auto; align-self: flex-start;
+    background: var(--black); color: var(--white); font-weight: 700; font-size: 15px;
+    padding: 12px 18px; border: 2px solid var(--black);
+  }
+  .card:hover .btn { background: var(--white); color: var(--black); border-color: var(--black); }
+
+  /* About */
+  .about { padding: 72px 0 24px; max-width: 640px; }
+  .about h2 { font-weight: 700; font-size: 28px; margin: 0 0 14px; }
+  .about p { margin: 0 0 14px; }
+
+  /* Footer */
+  footer {
+    background: var(--black); color: var(--white); padding: 40px 0 56px; margin-top: 48px;
+    border-top: 2px solid var(--white);
+  }
+  footer nav { display: flex; flex-wrap: wrap; gap: 12px; }
+  footer nav a {
+    color: var(--white); text-decoration: none; font-weight: 600; font-size: 15px;
+    border: 2px solid var(--white); padding: 10px 16px;
+  }
+  footer nav a:hover { background: var(--white); color: var(--black); }
+  footer nav a:focus-visible { outline-color: var(--white); }
+  footer p { margin: 28px 0 0; color: var(--grey-light); font-size: 14px; }
+
+  @media (max-width: 680px) {
+    .grid { grid-template-columns: 1fr; gap: 24px; }
+    .card { min-height: 0; padding: 26px 22px; }
+    .hero { padding: 56px 0 80px; }
+    .hero h1 { margin-bottom: 28px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero::before { animation: none; background-position: 50% 50%; opacity: 0.35; }
+    .card, .card:hover, .card:active { transform: none; transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Jessie Parkinson</h1>
+    <img class="avatar" src="assets/jessie.jpg" alt="Jessie Parkinson" width="160" height="160">
+    <p>Psychology graduate from Doncaster building tools for the moments working life gets hard.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <ul class="grid">
+
+    <li>
+      <a class="card" href="#"> <!-- TODO: Echo link (no public URL yet) -->
+        <h2>Echo</h2>
+        <p>Monthly staff wellbeing check-ins for schools and trusts, with clear next steps so leaders can act before good teachers leave.</p>
+        <span class="btn">Find out about Echo</span>
+      </a>
+    </li>
+
+    <li>
+      <a class="card" href="https://expertvoice.co.uk">
+        <h2>Expert Voice</h2>
+        <p>LinkedIn personal branding for business owners who want the right people to see them. Done for you, or done with you.</p>
+        <span class="btn">Visit Expert Voice</span>
+      </a>
+    </li>
+
+    <li>
+      <a class="card" href="https://www.seamdigitalstudio.com">
+        <h2>Seam Digital Studio</h2>
+        <p>Websites, booking and content for beauty, wellness and salon businesses in Doncaster and across South Yorkshire.</p>
+        <span class="btn">Visit Seam</span>
+      </a>
+    </li>
+
+    <li>
+      <a class="card" href="https://www.thegradgroundwork.com">
+        <h2>The Grad Groundwork</h2>
+        <p>Worksheets and tools for graduates working out their first steps after uni. One payment, yours to keep.</p>
+        <span class="btn">Visit The Grad Groundwork</span>
+      </a>
+    </li>
+
+  </ul>
+
+  <section class="about">
+    <h2>About me</h2>
+    <p>I started my first business straight out of university, with a dad who'd already run the road ahead of me and could tell me where the potholes were. Most people don't get that. Each of these projects is a version of it for someone who didn't.</p>
+    <p>The thread through all of them is the same: psychology applied at the moment someone's working life gets hard.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav>
+      <a href="https://www.linkedin.com/in/jessie-parkinson">LinkedIn</a>
+      <a href="mailto:jessie@expert-voice.co.uk">Email</a>
+      <a href="https://tidycal.com/jessie-parkinson/intro-call">Book a call</a>
+    </nav>
+    <p>© 2026 Jessie Parkinson</p>
+  </div>
+</footer>
+
+</body>
+</html>
