@@ -23,7 +23,7 @@ Personal hub site for Jessie Parkinson. One static page that routes visitors (mo
 - Nothing outstanding. Echo currently points at its Vercel address (echo-kappa-teal.vercel.app); swap in a custom domain when there is one.
 
 ## Link preview
-`assets/og.png` (2400x1260) is the Open Graph image LinkedIn and others show for the link. The `og:` and `twitter:` meta tags in `<head>` point at it with absolute URLs, so update them when the site moves to a custom domain.
+`assets/og-card.jpg` (1200x630) is the Open Graph image LinkedIn and others show for the link. The `og:` and `twitter:` meta tags in `<head>` point at it with absolute URLs, so update them when the site moves to a custom domain.
 
 ## Adding a project
 Copy one `<li class="card">` block inside `.grid`, change the name, sentence, button text, hrefs and social links. Add a 1200x675 JPEG screenshot to `assets/` (the app previews are real screenshots cropped to 16:9) and point the `<img class="preview">` at it.
