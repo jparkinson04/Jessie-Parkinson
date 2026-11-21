@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portfolio | Jessie Parkinson</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<!--
+  This page's content is encrypted in the LOCKED object at the bottom and only opens with the passcode.
+  The readable version is kept outside this repo. Don't paste it, or the passcode, in here.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    --black: #000000;
+    --white: #FFFFFF;
+    --grey: #3A3A3A;
+    --grey-light: #C8C8C8;
+    --bg: #FFFFFF;
+    --ink: #000000;
+    --card: #FFFFFF;
+    --card-ink: #000000;
+    --muted: #444444;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #000000; --ink: #FFFFFF;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #000000; --ink: #FFFFFF;
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, button, .links a { font-family: "Space Grotesk", Inter, system-ui, sans-serif; }
+  a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+  .sample a:focus-visible, .lock :focus-visible { outline-color: var(--black); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  [hidden] { display: none !important; }
+
+  /* Hero */
+  .hero {
+    position: relative; isolation: isolate; overflow: hidden;
+    background: var(--black); color: var(--white);
+    text-align: center; padding: 64px 0 72px;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0; z-index: -2;
+    background: linear-gradient(115deg,
+      var(--black) 0%, var(--grey) 30%, var(--white) 50%, var(--grey) 70%, var(--black) 100%);
+    background-size: 300% 100%; background-position: 0% 50%;
+    opacity: 0.25;
+    animation: drift 14s ease-in-out infinite;
+  }
+  .hero::after {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background: radial-gradient(ellipse 60% 75% at 50% 50%, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+  }
+  @keyframes drift {
+    0%   { background-position: 0% 50%;   opacity: 0.25; }
+    50%  { background-position: 100% 50%; opacity: 0.5; }
+    100% { background-position: 0% 50%;   opacity: 0.25; }
+  }
+  .hero h1 {
+    font-weight: 700; font-size: clamp(40px, 7vw, 76px); line-height: 1;
+    letter-spacing: -0.02em; margin: 0 0 28px;
+  }
+  .avatar {
+    display: block; width: 160px; height: 160px; margin: 0 auto 24px;
+    border-radius: 50%; border: 3px solid var(--white); object-fit: cover;
+    background: var(--black);
+  }
+  .hero p { font-size: clamp(17px, 2vw, 20px); margin: 0 auto; max-width: 30em; color: var(--grey-light); }
+
+  /* Passcode box */
+  .lock {
+    max-width: 460px; margin: 48px auto 0; padding: 30px;
+    background: var(--card); color: var(--card-ink);
+    border: 2px solid var(--black); border-radius: 20px;
+  }
+  .lock h2 { font-weight: 700; font-size: 28px; line-height: 1.1; margin: 0 0 10px; }
+  .lock p { margin: 0 0 18px; color: var(--muted); }
+  .lock label { display: block; font-weight: 600; font-size: 15px; margin-bottom: 8px; }
+  .lock input {
+    display: block; width: 100%; font: inherit; color: var(--black); background: var(--white);
+    padding: 12px 14px; border: 2px solid var(--black); border-radius: 10px; margin-bottom: 14px;
+  }
+  .lock button {
+    width: 100%; cursor: pointer;
+    background: var(--black); color: var(--white); font-weight: 700; font-size: 15px;
+    padding: 12px 18px; border: 2px solid var(--black); border-radius: 10px;
+  }
+  .lock button:hover:not(:disabled) { background: var(--white); color: var(--black); }
+  .lock button:disabled { cursor: progress; opacity: 0.6; }
+  .lock .status { margin: 14px 0 0; min-height: 1.55em; font-weight: 600; color: var(--black); }
+
+  /* Unlocked content */
+  .intro { max-width: 680px; padding-top: 56px; }
+  .intro p { margin: 0 0 14px; }
+  .intro .lead {
+    font-family: "Space Grotesk", Inter, system-ui, sans-serif; font-weight: 500;
+    font-size: clamp(21px, 2.6vw, 26px); line-height: 1.3; letter-spacing: -0.01em;
+  }
+  .samples {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px;
+    margin: 34px 0 0; padding: 0; list-style: none;
+  }
+  .sample {
+    display: flex; flex-direction: column; gap: 14px; padding: 28px 30px 30px;
+    background: var(--card); color: var(--card-ink);
+    border: 2px solid var(--black); border-radius: 20px;
+  }
+  .sample h2 { font-weight: 700; font-size: 26px; line-height: 1.1; margin: 0; letter-spacing: -0.01em; }
+  .sample p { margin: 0; color: var(--muted); }
+  .sample .result { color: var(--black); font-weight: 600; }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; }
+  .sample .links { margin-top: auto; padding-top: 10px; }
+  .links a {
+    background: var(--black); color: var(--white); font-weight: 700; font-size: 15px; text-decoration: none;
+    padding: 12px 18px; border: 2px solid var(--black); border-radius: 10px; overflow-wrap: anywhere;
+  }
+  .links a:hover { background: var(--white); color: var(--black); }
+  .contact { padding: 64px 0 24px; }
+  .contact h2 { font-weight: 700; font-size: 28px; margin: 0 0 16px; }
+  /* On the page background, so these follow the page colours in dark mode */
+  .contact .links a { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .contact .links a:hover { background: var(--bg); color: var(--ink); }
+
+  /* Footer */
+  footer {
+    background: var(--black); color: var(--white); padding: 40px 0 56px; margin-top: 48px;
+    border-top: 2px solid var(--white);
+  }
+  footer nav { display: flex; flex-wrap: wrap; gap: 12px; }
+  footer nav a {
+    color: var(--white); text-decoration: none; font-weight: 600; font-size: 15px;
+    border: 2px solid var(--white); padding: 10px 16px;
+  }
+  footer nav a:hover { background: var(--white); color: var(--black); }
+  footer nav a:focus-visible { outline-color: var(--white); }
+  footer p { margin: 28px 0 0; color: var(--grey-light); font-size: 14px; }
+
+  @media (max-width: 680px) {
+    .samples { grid-template-columns: 1fr; gap: 24px; }
+    .sample { padding: 22px 22px 24px; }
+    .lock { padding: 24px 22px; margin-top: 36px; }
+    .hero { padding: 56px 0 64px; }
+    .intro { padding-top: 44px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero::before { animation: none; background-position: 50% 50%; opacity: 0.35; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Portfolio</h1>
+    <img class="avatar" src="assets/jessie.jpg" alt="Jessie Parkinson" width="160" height="160">
+    <p>Writing and content samples from Jessie Parkinson.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <form class="lock" id="lock">
+    <h2>This page is private</h2>
+    <p>Type the passcode you were sent to see the samples.</p>
+    <label for="passcode">Passcode</label>
+    <input id="passcode" name="passcode" type="text" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" required>
+    <button type="submit" id="unlock">Open the portfolio</button>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+    <noscript><p class="status">This page needs JavaScript switched on to open.</p></noscript>
+  </form>
+  <div id="content" hidden></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav>
+      <a href="/">Everything else I've built</a>
+    </nav>
+    <p>© 2026 Jessie Parkinson</p>
+  </div>
+</footer>
+
+<script>
+  // Encrypted page content (AES-GCM, key from the passcode via PBKDF2). Made by lock.mjs.
+  const LOCKED = {"iterations":600000,"salt":"qXWo1vH6G76tmFgfuJC48w==","iv":"7RjWdole1PfJi8FX","data":"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"};
+
+  const form = document.getElementById("lock");
+  const input = document.getElementById("passcode");
+  const button = document.getElementById("unlock");
+  const status = document.getElementById("status");
+  const content = document.getElementById("content");
+  const bytes = (b64) => Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+
+  async function decrypt(passcode) {
+    const material = await crypto.subtle.importKey("raw", new TextEncoder().encode(passcode.trim().toLowerCase()), "PBKDF2", false, ["deriveKey"]);
+    const key = await crypto.subtle.deriveKey(
+      { name: "PBKDF2", salt: bytes(LOCKED.salt), iterations: LOCKED.iterations, hash: "SHA-256" },
+      material, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+    const plain = await crypto.subtle.decrypt({ name: "AES-GCM", iv: bytes(LOCKED.iv) }, key, bytes(LOCKED.data));
+    return new TextDecoder().decode(plain);
+  }
+
+  async function open(passcode) {
+    if (!passcode.trim()) return;
+    if (!window.crypto || !crypto.subtle) {
+      status.textContent = "This browser can't open the page. Try a recent version of Chrome, Safari, Edge or Firefox.";
+      return;
+    }
+    button.disabled = true;
+    status.textContent = "Opening…";
+    try {
+      content.innerHTML = await decrypt(passcode);
+      content.querySelectorAll('a[href^="http"]').forEach((a) => { a.target = "_blank"; a.rel = "noopener"; });
+      form.hidden = true;
+      content.hidden = false;
+    } catch (e) {
+      status.textContent = "That passcode didn't work. Check it and try again.";
+      button.disabled = false;
+      input.focus();
+      input.select();
+    }
+  }
+
+  form.addEventListener("submit", (e) => { e.preventDefault(); open(input.value); });
+
+  // A link ending in #passcode opens the page straight away.
+  function fromLink() {
+    let code = location.hash.slice(1);
+    try { code = decodeURIComponent(code); } catch (e) {}
+    if (code) { input.value = code; open(code); }
+  }
+  window.addEventListener("hashchange", fromLink);
+  fromLink();
+</script>
+
+</body>
+</html>

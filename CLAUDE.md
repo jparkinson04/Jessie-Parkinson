@@ -25,5 +25,8 @@ Personal hub site for Jessie Parkinson. One static page that routes visitors (mo
 ## Link preview
 `assets/og-card.jpg` (1200x630) is the Open Graph image LinkedIn and others show for the link. The `og:` and `twitter:` meta tags in `<head>` point at it with absolute URLs, so update them when the site moves to a custom domain.
 
+## Portfolio page
+`portfolio.html` is the one exception to the single-file, no-JS rule. It is a private page, not linked from the hub. Its content is encrypted inside the `LOCKED` object and opens in the browser with a passcode (typed in, or after `#` in the link). This repo is public, so never put the readable content or the passcode in it. Jessie keeps both, plus the `lock.mjs` script that rebuilds the page, outside the repo. Styling changes to the page shell are fine to make directly; content changes mean re-running `lock.mjs`.
+
 ## Adding a project
 Copy one `<li class="card">` block inside `.grid`, change the name, sentence, button text, hrefs and social links. Add a 1200x675 JPEG screenshot to `assets/` (the app previews are real screenshots cropped to 16:9) and point the `<img class="preview">` at it.
